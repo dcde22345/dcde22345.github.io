@@ -30,6 +30,7 @@
     .banner {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/banner.jpg") fixed top center/cover;
         height: 100vh;
+        min-height: 500px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -47,6 +48,7 @@
     .about {
         max-width: 767px;
         height: 90vh;
+        min-height: 800px;
         margin: auto;
         position: relative;
         display: flex;
@@ -85,6 +87,7 @@
     
     .skills {
         height: 70vh;
+        min-height: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -146,18 +149,17 @@
     
     .experience {
         max-width: 960px;
-        padding: 5% 0;
+        padding: 5% 0 25% 0;
         margin: auto;
     }
     
     .experience>h3 {
+        font-weight: 500;
         margin-bottom: 10%;
     }
     
     .experience .container {
-        width: 100%;
         position: relative;
-        clear: both;
     }
     
     .experience .container::before {
@@ -166,7 +168,7 @@
         top: 0;
         left: 50%;
         width: 2px;
-        height: calc(100% - 153.6px);
+        height: 100%;
         background-color: black;
         transform: translateX(-50%);
     }
@@ -180,6 +182,10 @@
     .experience section {
         position: relative;
         width: 50%;
+    }
+    
+    .experience p {
+        font-weight: 300;
     }
     
     .experience section:nth-child(odd) {
@@ -219,6 +225,87 @@
         border-radius: 50%;
     }
     
+    .contect {
+        min-height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/contect.jpg) center/cover fixed;
+        position: relative;
+    }
+    
+    .contect .container {
+        max-width: 960px;
+        padding: 5%;
+        background-color: #aaaaaa;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .contect .info {
+        position: relative;
+        padding: 0 3% 0 0;
+    }
+    
+    .contect span {
+        line-height: 2;
+    }
+    
+    .contect .social-media {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    
+    .contect form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .contect input {
+        box-sizing: border-box;
+        margin-bottom: 5%;
+        outline: none;
+        border: 5px solid transparent;
+        padding: 2%;
+        transition: all 0.3s ease;
+    }
+    
+    .contect input:focus {
+        border: 5px solid var(--bs-secondary);
+    }
+    
+    .contect .name {
+        width: 45%;
+    }
+    
+    .contect .phone {
+        width: 45%;
+    }
+    
+    .contect .email {
+        width: 100%;
+    }
+    
+    .contect textarea {
+        resize: none;
+        width: 100%;
+        margin-bottom: 5%;
+        outline: none;
+        border: 5px solid transparent;
+        padding: 2%;
+        transition: all 0.3s ease;
+    }
+    
+    .contect textarea:focus {
+        border: 5px solid var(--bs-secondary);
+    }
+    
+    .contect .submit {
+        width: 100%;
+    }
+    
     @media screen and (max-width: 768px) {
         .about {
             align-content: flex-start;
@@ -247,5 +334,40 @@
         }
         .experience {
             padding: 10%;
+        }
+        .experience>h3 {
+            margin-bottom: 20%;
+        }
+        .experience section:nth-child(odd) {
+            text-align: end;
+            float: left;
+            clear: right;
+            margin-left: -20px;
+        }
+        .experience section:nth-child(even) {
+            float: right;
+            clear: left;
+            margin-right: -20px;
+        }
+        .experience section:nth-child(odd)::after {
+            right: -20px;
+        }
+        .experience section:nth-child(even)::before {
+            left: -20px;
+        }
+        .contect {
+            padding: 10%;
+        }
+        .contect .container {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0, 0);
+        }
+        .contect .info {
+            padding: 0;
+        }
+        .contect .social-media {
+            position: relative;
         }
     }
