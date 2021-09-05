@@ -1,373 +1,190 @@
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500&family=Roboto:wght@500;700&display=swap');
-    body {
-        font-family: 'Noto Sans TC', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap');
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    height: 7000px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.5s ease;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 5%;
+    max-width: calc(1200px + 10%);
+}
+
+.brand a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+header nav {
+    flex-grow: 0.5;
+    margin-left: auto;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-list a {
+    display: inline-block;
+    color: #fff;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.CTA a {
+    display: inline-block;
+    color: #fff;
+    padding: 20px;
+    background-color: transparent;
+    border: 2px solid rgba(0, 150, 150, 1);
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.banner {
+    height: 100vh;
+    min-height: 700px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/banner.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.banner .brand-icon {
+    padding: 10px;
+    margin-bottom: 50px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+}
+
+.banner .main-title {
+    color: #fff;
+    font-size: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.banner .sub-title {
+    color: #fff;
+    font-size: 30px;
+}
+
+.banner .social-media {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px;
+}
+
+.facebook,
+.instagram {
+    margin: 0 20px;
+}
+
+.about {
+    height: 70vh;
+    min-height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+}
+
+.about .head-shot {
+    width: 50%;
+    text-align: right;
+}
+
+.about .txt {
+    width: 50%;
+}
+
+.about img {
+    width: 100%;
+    height: 400px;
+    max-width: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hello h3 {
+    font-size: 35px;
+    font-weight: 700;
+    position: absolute;
+    top: 10%;
+    margin-left: -50px;
+}
+
+.autobiograph {
+    padding: 100px 0 0 20px;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+.autobiograph h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5%;
+}
+
+.autobiograph p {
+    font-weight: 300;
+}
+
+
+/* appication */
+
+.nav-scrolled {
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.nav-scrolled .brand a,
+.nav-scrolled .nav-list a {
+    color: #000;
+}
+
+.nav-scrolled .CTA a {
+    background-color: rgba(0, 150, 150, 1);
+}
+
+@media (hover) {
+    .nav-list a:hover {
+        color: #000;
+        background-color: #fff;
     }
-    
-    .wrap {
-        position: relative;
+    .CTA a:hover {
+        background-color: rgba(0, 150, 150, 1);
     }
-    
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 500;
+    .nav-scrolled .nav-list a:hover {
+        color: #fff;
+        background-color: #000;
     }
-    
-    .offcanvas-body li {
-        list-style: none;
+    .nav-scrolled .CTA a:hover {
+        color: rgba(0, 150, 150, 1);
+        background-color: transparent;
     }
-    
-    .offcanvas-body a {
-        text-decoration: none;
-        color: var(--bs-gray-dark);
-        display: block;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    
-    .banner {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/banner.jpg") fixed top center/cover;
-        height: 100vh;
-        min-height: 500px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3rem;
-    }
-    
-    .banner .brand-icon {
-        border: 5px solid #ffffff;
-        border-radius: 50%;
-        padding: 10px;
-        margin-bottom: 7%;
-    }
-    
-    .about {
-        max-width: 767px;
-        height: 90vh;
-        min-height: 800px;
-        margin: auto;
-        position: relative;
-        display: flex;
-        align-items: center;
-    }
-    
-    .about .pic {
-        width: 50%;
-        height: 50%;
-        margin-right: 20px;
-    }
-    
-    .about img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .about .intro {
-        width: 50%;
-    }
-    
-    .intro .hello {
-        margin-left: -50px;
-        margin-bottom: 20px;
-    }
-    
-    .intro .display-6 {
-        font-weight: normal;
-    }
-    
-    .intro .text-secondary {
-        font-family: 'Noto Sans TC', sans-serif;
-        font-weight: 300;
-    }
-    
-    .skills {
-        height: 70vh;
-        min-height: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/skill.jpg") center/cover fixed;
-        font-family: 'Roboto', sans-serif;
-    }
-    
-    .skills .container {
-        max-width: 960px;
-        color: #ffffff;
-    }
-    
-    .skills .col-md-9 {
-        display: flex;
-        align-items: center;
-    }
-    
-    .skills .bar {
-        display: block;
-        width: 100%;
-        height: 10%;
-        background-color: #aaaaaa;
-    }
-    
-    .skills .html {
-        display: block;
-        width: 80%;
-        height: 100%;
-        background-color: #ffffff;
-    }
-    
-    .skills .bootstrap {
-        display: block;
-        width: 90%;
-        height: 100%;
-        background-color: #ffffff;
-    }
-    
-    .skills .jquery {
-        display: block;
-        width: 60%;
-        height: 100%;
-        background-color: #ffffff;
-    }
-    
-    .skills .javascript {
-        display: block;
-        width: 50%;
-        height: 100%;
-        background-color: #ffffff;
-    }
-    
-    .skills .vue {
-        display: block;
-        width: 20%;
-        height: 100%;
-        background-color: #ffffff;
-    }
-    
-    .experience {
-        max-width: 960px;
-        padding: 5% 0 400px 0;
-        margin: auto;
-    }
-    
-    .experience>h3 {
-        font-weight: 500;
-        margin-bottom: 10%;
-    }
-    
-    .experience .container {
-        position: relative;
-    }
-    
-    .experience .container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 2px;
-        height: 100%;
-        background-color: black;
-        transform: translateX(-50%);
-    }
-    
-    .experience .container::after {
-        content: '';
-        display: block;
-        clear: both;
-    }
-    
-    .experience section {
-        position: relative;
-        width: 50%;
-    }
-    
-    .experience p {
-        font-weight: 300;
-    }
-    
-    .experience section:nth-child(odd) {
-        text-align: end;
-        float: left;
-        clear: right;
-        margin-left: -50px;
-    }
-    
-    .experience section:nth-child(even) {
-        float: right;
-        clear: left;
-        margin-right: -50px;
-    }
-    
-    .experience section:nth-child(odd)::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: -50px;
-        transform: translateX(50%);
-        width: 12px;
-        height: 12px;
-        background-color: black;
-        border-radius: 50%;
-    }
-    
-    .experience section:nth-child(even)::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -50px;
-        transform: translateX(-50%);
-        width: 12px;
-        height: 12px;
-        background-color: black;
-        border-radius: 50%;
-    }
-    
-    .contect {
-        min-height: 500px;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/contect.jpg) center/cover fixed;
-        position: relative;
-    }
-    
-    .contect .container {
-        max-width: 960px;
-        padding: 5%;
-        background-color: #aaaaaa;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    
-    .contect .info {
-        position: relative;
-        padding: 0 3% 0 0;
-    }
-    
-    .contect span {
-        line-height: 2;
-    }
-    
-    .contect .social-media {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-    
-    .contect form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    .contect input {
-        box-sizing: border-box;
-        margin-bottom: 5%;
-        outline: none;
-        border: 5px solid transparent;
-        padding: 2%;
-        transition: all 0.3s ease;
-    }
-    
-    .contect input:focus {
-        border: 5px solid var(--bs-secondary);
-    }
-    
-    .contect .name {
-        width: 45%;
-    }
-    
-    .contect .phone {
-        width: 45%;
-    }
-    
-    .contect .email {
-        width: 100%;
-    }
-    
-    .contect textarea {
-        resize: none;
-        width: 100%;
-        margin-bottom: 5%;
-        outline: none;
-        border: 5px solid transparent;
-        padding: 2%;
-        transition: all 0.3s ease;
-    }
-    
-    .contect textarea:focus {
-        border: 5px solid var(--bs-secondary);
-    }
-    
-    .contect .submit {
-        width: 100%;
-    }
-    
-    @media screen and (max-width: 768px) {
-        .about {
-            align-content: flex-start;
-            flex-wrap: wrap;
-            padding: 10%;
-            height: auto;
-        }
-        .about .pic {
-            width: 100%;
-            margin-right: 0;
-            padding: 5%;
-        }
-        .about .intro {
-            width: 100%;
-            margin: 5% 0;
-            padding: 0 5%;
-        }
-        .about .hello {
-            margin-left: 0;
-        }
-        .skills {
-            padding: 10%;
-        }
-        .skills .bar {
-            height: 5px;
-        }
-        .experience {
-            padding: 10%
-        }
-        .experience>h3 {
-            margin-bottom: 20%;
-        }
-        .experience section:nth-child(odd) {
-            text-align: end;
-            float: left;
-            clear: right;
-            margin-left: -20px;
-        }
-        .experience section:nth-child(even) {
-            float: right;
-            clear: left;
-            margin-right: -20px;
-        }
-        .experience section:nth-child(odd)::after {
-            right: -20px;
-        }
-        .experience section:nth-child(even)::before {
-            left: -20px;
-        }
-        .contect {
-            padding: 10%;
-        }
-        .contect .container {
-            position: relative;
-            top: 0;
-            left: 0;
-            transform: translate(0, 0);
-        }
-        .contect .info {
-            padding: 0;
-        }
-        .contect .social-media {
-            position: relative;
-        }
-    }
+}
