@@ -85,9 +85,15 @@ window.onload = () => {
         }
     })
 
-    wrap.addEventListener("resize", () => {
-        navList.style.transition = "none";
-        navList.style.transform = "translateX(0);"
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+            closeMenu();
+            navList.style.transition = "none";
+            navList.style.transform = "translateX(0)";
+            header.classList.remove("menu-opened")
+        } else {
+            navbarSlideOut();
+        }
     })
 
 
@@ -113,7 +119,8 @@ window.onload = () => {
 
     //Slide right
     const slideRightOptions = {
-        rootMargin: "0px 0px -50% 0px"
+        rootMargin: "-30% 0px 0px 0px",
+        threshold: 0.5
     };
 
     const slideRightScrolled = new IntersectionObserver(entries => {
@@ -134,7 +141,8 @@ window.onload = () => {
 
     //Slide up
     const slideUpOptions = {
-        rootMargin: "0px 0px -50% 0px"
+        rootMargin: "-40% 0px 0px 0px",
+        threshold: 1
     };
 
     const slideUpScrolled = new IntersectionObserver(entries => {

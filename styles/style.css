@@ -4,6 +4,15 @@ body {
     height: 7000px;
 }
 
+.wrap {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -103,7 +112,7 @@ header nav {
 
 .about {
     height: 70vh;
-    min-height: 700px;
+    min-height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,10 +128,11 @@ header nav {
 
 .about .head-shot {
     width: 50%;
+    height: 400px;
     text-align: right;
     opacity: 0;
-    transform: translateX(-200px);
-    transition: all 0.5s ease-out;
+    transform: translateX(-25%);
+    transition: all 0.5s ease;
 }
 
 .about .txt {
@@ -131,7 +141,7 @@ header nav {
 
 .about img {
     width: 100%;
-    height: 400px;
+    height: 100%;
     max-width: 400px;
     object-fit: cover;
     object-position: center;
@@ -275,15 +285,39 @@ header nav {
         color: #fff;
         background-color: rgba(0, 150, 150, 1);
     }
-    /* animation */
-    @keyframes navLinks {
-        from {
-            opacity: 0;
-            transform: translateX(-100px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
+    .about {
+        padding: 10% 0;
+    }
+    .about .container {
+        flex-direction: column;
+    }
+    .about .head-shot {
+        width: 100%;
+    }
+    .about .txt {
+        width: 100%;
+        margin-top: 5%;
+        padding: 5%;
+    }
+    .hello h3 {
+        position: unset;
+        margin-left: 0;
+    }
+    .autobiograph {
+        padding: 5% 0;
+    }
+}
+
+
+/* animation */
+
+@keyframes navLinks {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
