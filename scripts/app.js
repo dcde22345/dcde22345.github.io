@@ -2,6 +2,8 @@ window.onload = () => {
     const body = document.body;
     const wrap = document.querySelector(".wrap");
     const header = document.querySelector("header");
+    const headerContainer = document.querySelector("header .container");
+    const navbar = document.querySelector("nav");
     const navList = document.querySelector(".nav-list");
     const navLinks = document.querySelectorAll(".nav-list li")
     const burger = document.querySelector(".burger");
@@ -11,23 +13,54 @@ window.onload = () => {
     const slideUp = document.querySelectorAll(".slider-up");
     const slideLeft = document.querySelector(".slideLeft");
 
+    const hider = headerContainer.getElementsByTagName("div");
 
     //burger toggle
-    function openMenu() {
+    function navbarSlideIn() {
+        navList.style.transition = "transform 0.5s ease";
         navList.style.transform = "translateX(0)";
+        navbar.style.transition = "background-color 0.5s ease"
+        navbar.style.backgroundColor = "rgba(0,0,0,0.5)";
         navLinks.forEach((link, index) => {
             link.style.animation = `navLinks 0.5s ease forwards ${(index + 1) / 5}s`;
         });
+    };
+
+    function navbarSlideOut() {
+        navList.style.transform = "translateX(-100%)";
+        navbar.style.backgroundColor = "rgba(0,0,0,0)"
+        navLinks.forEach((link) => {
+            link.style.animation = "";
+        });
+    };
+
+    function hideHeader() {
+        header.classList.toggle("menu-opened");
+        for (let i = 0; i < hider.length; i++) {
+            hider[i].style.transition = "opacity 0.5s ease";
+            hider[i].style.opacity = "0";
+        }
+    }
+
+    function showHeader() {
+        header.classList.toggle("menu-opened");
+        for (let i = 0; i < hider.length; i++) {
+            hider[i].style.opacity = "1";
+        }
+    }
+
+    function openMenu() {
+        navbarSlideIn();
+        hideHeader();
         isMenuOpen = true;
     }
 
     function closeMenu() {
-        navList.style.transform = "translateX(-100%)";
-        navLinks.forEach((link) => {
-            link.style.animation = "";
-        })
+        navbarSlideOut();
+        showHeader();
         isMenuOpen = false;
     }
+
 
     function isClickingBurger(event) {
         if (event.target === burger) {
@@ -37,9 +70,10 @@ window.onload = () => {
 
     function isClickingNavList(event) {
         if (event.target !== navList) {
-            closeMenu()
+            closeMenu();
         }
     }
+
 
     let isMenuOpen = false;
 
@@ -51,11 +85,15 @@ window.onload = () => {
         }
     })
 
+    wrap.addEventListener("resize", () => {
+        navList.style.transition = "none";
+        navList.style.transform = "translateX(0);"
+    })
 
 
     //Scrolled animation
 
-    //nav animation
+    //nav scrolled animation
     const navOptions = {
         rootMargin: "-30% 0px 0px 0px",
     };
@@ -84,8 +122,6 @@ window.onload = () => {
                 slideRight.forEach((slider) => {
                     slider.classList.add("slide-right");
                 })
-            } else {
-                return;
             }
         })
     }, slideRightOptions);

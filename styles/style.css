@@ -11,6 +11,7 @@ header {
     right: 0;
     z-index: 1000;
     transition: all 0.5s ease;
+    background-color: transparent;
 }
 
 header .container {
@@ -187,6 +188,11 @@ header nav {
     background-color: rgba(0, 150, 150, 1);
 }
 
+.menu-opened {
+    background-color: transparent;
+    box-shadow: none;
+}
+
 .slider-up.slide-up {
     opacity: 1;
     transform: translateY(0);
@@ -229,22 +235,35 @@ header nav {
         background-color: rgba(255, 255, 255, 0.5);
         margin-bottom: 5px;
     }
+    .nav-scrolled .burger span {
+        background-color: #000;
+    }
     header {
         width: 100%;
     }
     header .container {
         position: relative;
+        z-index: 1000;
+    }
+    nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
     }
     .nav-list {
         position: absolute;
         top: 0;
         left: 0;
         width: 70%;
+        margin-left: 0;
         background-color: #fff;
         flex-direction: column;
-        height: 100vh;
+        height: 100%;
         transform: translateX(-100%);
-        transition: transform 0.5s ease;
+        z-index: 1100;
     }
     .nav-list li {
         opacity: 0;
