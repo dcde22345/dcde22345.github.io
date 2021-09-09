@@ -71,7 +71,7 @@ header nav {
 .banner {
     height: 100vh;
     min-height: 700px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/banner.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/banner.jpg) center/cover fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -155,7 +155,7 @@ header nav {
     margin-left: -50px;
     opacity: 0;
     transform: translateY(100px);
-    transition: all 0.5s ease-out 0.2s;
+    transition: all 0.5s ease-out;
 }
 
 .autobiograph {
@@ -170,14 +170,92 @@ header nav {
     margin-bottom: 5%;
     opacity: 0;
     transform: translateY(100px);
-    transition: all 0.5s ease-out 0.4s;
+    transition: all 0.5s ease-out;
 }
 
 .autobiograph p {
     font-weight: 300;
     opacity: 0;
     transform: translateY(100px);
-    transition: all 0.5s ease-out 0.6s;
+    transition: all 0.5s ease-out;
+}
+
+.skills {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/skill.jpg) center/cover fixed;
+    height: 80vh;
+    min-height: 500px;
+    display: flex;
+}
+
+.skills .container {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    color: #fff;
+}
+
+.skills .skill-title {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 5%;
+    transform: translateX(-50%);
+}
+
+.skills .diagram {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+    padding: 0 5%;
+}
+
+.diagram .item {
+    display: flex;
+    align-items: center;
+}
+
+.diagram h4 {
+    font-size: 28px;
+    font-weight: 700;
+    width: 20%;
+    text-align: end;
+}
+
+.diagram .background-line {
+    display: block;
+    width: 80%;
+    margin-left: 5%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.background-line span {
+    display: block;
+    border-radius: 5px;
+    background-color: #fff;
+    height: 5px;
+}
+
+.html {
+    width: 90%;
+}
+
+.css {
+    width: 85%;
+}
+
+.js {
+    width: 50%;
+}
+
+.jq {
+    width: 55%;
+}
+
+.vue {
+    width: 20%;
 }
 
 
@@ -203,14 +281,55 @@ header nav {
     box-shadow: none;
 }
 
+.slider-up {
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
 .slider-up.slide-up {
     opacity: 1;
     transform: translateY(0);
 }
 
+.slider-right {
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
 .slider-right.slide-right {
     opacity: 1;
     transform: translateX(0);
+}
+
+.progress-title {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.5s ease;
+}
+
+.progress-background {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease 0.2s;
+}
+
+.progress-line {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease 0.5s;
+}
+
+.scrolled .progress-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scrolled .progress-background {
+    transform: scaleX(1);
+}
+
+.scrolled .progress-line {
+    transform: scaleX(1);
 }
 
 
@@ -305,6 +424,18 @@ header nav {
     }
     .autobiograph {
         padding: 5% 0;
+    }
+    .diagram .item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .diagram h4 {
+        text-align: left;
+        margin-bottom: 5%;
+    }
+    .diagram .background-line {
+        width: 100%;
+        margin-left: 0;
     }
 }
 

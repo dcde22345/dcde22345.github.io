@@ -1,4 +1,5 @@
 window.onload = () => {
+    //getting elements
     const body = document.body;
     const wrap = document.querySelector(".wrap");
     const header = document.querySelector("header");
@@ -9,13 +10,18 @@ window.onload = () => {
     const burger = document.querySelector(".burger");
     const banner = document.querySelector(".banner");
     const headShot = document.querySelector(".head-shot");
-    const slideRight = document.querySelectorAll(".slider-right");
-    const slideUp = document.querySelectorAll(".slider-up");
-    const slideLeft = document.querySelector(".slideLeft");
+    const skillContainer = document.querySelector(".skills .container")
+    const skillItem = document.querySelectorAll(".diagram .item");
 
+    //getting the child elements
     const hider = headerContainer.getElementsByTagName("div");
 
+    //special use
+    const slideRight = document.querySelectorAll(".slider-right");
+    const slideUp = document.querySelectorAll(".slider-up");
+
     //burger toggle
+
     function navbarSlideIn() {
         navList.style.transition = "transform 0.5s ease";
         navList.style.transform = "translateX(0)";
@@ -86,7 +92,7 @@ window.onload = () => {
     })
 
     window.addEventListener("resize", () => {
-        if (window.innerWidth >= 768) {
+        if (window.innerWidth >= 767) {
             closeMenu();
             navList.style.transition = "none";
             navList.style.transform = "translateX(0)";
@@ -103,8 +109,8 @@ window.onload = () => {
     const navOptions = {
         rootMargin: "-30% 0px 0px 0px",
     };
-    const navScrolled = new IntersectionObserver(entries => {
-        entries.forEach((entry, navScrolled) => {
+    const navScrolled = new IntersectionObserver((entries, navScrolled) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 header.classList.remove("nav-scrolled");
             } else {
@@ -119,16 +125,15 @@ window.onload = () => {
 
     //Slide right
     const slideRightOptions = {
-        rootMargin: "-30% 0px 0px 0px",
-        threshold: 0.5
+        rootMargin: "0px 0px -30% 0px",
+        threshold: 0.3
     };
 
-    const slideRightScrolled = new IntersectionObserver(entries => {
-        entries.forEach((entry, slideRightScrolled) => {
+    const slideRightScrolled = new IntersectionObserver((entries, slideRightScrolled) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                slideRight.forEach((slider) => {
-                    slider.classList.add("slide-right");
-                })
+                entry.target.classList.add("slide-right");
+                slideRightScrolled.unobserve(entry.target);
             }
         })
     }, slideRightOptions);
@@ -141,22 +146,46 @@ window.onload = () => {
 
     //Slide up
     const slideUpOptions = {
-        rootMargin: "-40% 0px 0px 0px",
-        threshold: 1
+        rootMargin: "0px 0px -20% 0px",
     };
 
-    const slideUpScrolled = new IntersectionObserver(entries => {
-        entries.forEach((entry, slideUpScrolled) => {
+    const slideUpScrolled = new IntersectionObserver((entries, slideUpScrolled) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                slideUp.forEach((slider) => {
-                    slider.classList.add("slide-up");
-                })
-            } else {
-                return;
+                entry.target.classList.add("slide-up");
+                slideUpScrolled.unobserve(entry.target);
             }
         })
     }, slideUpOptions);
+
     slideUp.forEach((slider) => {
         slideUpScrolled.observe(slider);
     })
+
+
+    //skill progress application
+
+    const progressOptions = {
+        rootMargin: "0px 0px -40% 0px",
+    };
+
+    const progressScrolled = new IntersectionObserver((entries, progressScrolled) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    skillItem.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add("scrolled");
+                        }, index * 300);
+                    });
+                    progressScrolled.unobserve(entry.target);
+                }
+            });
+        },
+        progressOptions);
+
+    progressScrolled.observe(skillContainer);
+
+
+
+
 }
