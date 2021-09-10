@@ -12,6 +12,11 @@ window.onload = () => {
     const headShot = document.querySelector(".head-shot");
     const skillContainer = document.querySelector(".skills .container")
     const skillItem = document.querySelectorAll(".diagram .item");
+    const experienceContainer = document.querySelector(".experience .container");
+    const experienceItem = document.querySelectorAll(".experience .item");
+    const contectContainer = document.querySelector(".contect .container")
+
+
 
     //getting the child elements
     const hider = headerContainer.getElementsByTagName("div");
@@ -103,7 +108,7 @@ window.onload = () => {
     })
 
 
-    //Scrolled animation
+    //Lazy loading
 
     //nav scrolled animation
     const navOptions = {
@@ -166,7 +171,7 @@ window.onload = () => {
     //skill progress application
 
     const progressOptions = {
-        rootMargin: "0px 0px -40% 0px",
+        rootMargin: "0px 0px -50% 0px",
     };
 
     const progressScrolled = new IntersectionObserver((entries, progressScrolled) => {
@@ -185,7 +190,40 @@ window.onload = () => {
 
     progressScrolled.observe(skillContainer);
 
+    //Time line application
+    const timeLineOptions = {
+        rootMargin: "0px 0px -40% 0px",
+    };
 
+    const timeLineScrolled = new IntersectionObserver((entries, timeLineScrolled) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("scrolled");
+                experienceItem.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add("fade-in");
+                    }, index * 800);
+                })
+                timeLineScrolled.unobserve(entry.target);
+            }
+        })
+    }, timeLineOptions);
 
+    timeLineScrolled.observe(experienceContainer);
 
+    //Contect application
+    const contectOptions = {
+        rootMargin: "0px 0px -30% 0px"
+    };
+
+    const contectScrolled = new IntersectionObserver((entries, contectScrolled) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("scrolled");
+                contectScrolled.unobserve(entry.target);
+            }
+        })
+    }, contectOptions);
+
+    contectScrolled.observe(contectContainer);
 }
