@@ -427,6 +427,7 @@
         outline: none;
         border: 4px solid rgb(255, 255, 255);
         padding: 2%;
+        margin-bottom: 5%;
         transition: border-color 0.5s ease;
     }
     
@@ -451,6 +452,17 @@
     form .email {
         width: 100%;
         margin-bottom: 5%;
+    }
+    
+    form .submit-btn {
+        width: 100%;
+        height: 40px;
+        background-color: transparent;
+        outline: none;
+        border: 2px solid #fff;
+        color: #fff;
+        font-weight: 500;
+        cursor: pointer;
     }
     
     footer {
@@ -485,9 +497,9 @@
         transition: all 0.5s ease;
     }
     
-    .slider-up.slide-up {
-        opacity: 1;
-        transform: translateY(0);
+    .slide-up {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
     }
     
     .slider-right {
@@ -495,9 +507,9 @@
         transition: all 0.5s ease;
     }
     
-    .slider-right.slide-right {
-        opacity: 1;
-        transform: translateX(0);
+    .slide-right {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
     }
     
     .fade-in {
@@ -585,12 +597,13 @@
             z-index: 1000;
         }
         nav {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
             z-index: -1;
+            pointer-events: none;
         }
         .nav-list {
             position: absolute;
