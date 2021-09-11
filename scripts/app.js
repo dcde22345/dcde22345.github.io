@@ -121,6 +121,7 @@ window.onload = () => {
             closeMenu();
             navList.style.transition = "none";
             navList.style.transform = "translateX(0)";
+            navbar.style.pointerEvents = "all";
             header.classList.remove("menu-opened")
         } else {
             navbarSlideOut();
