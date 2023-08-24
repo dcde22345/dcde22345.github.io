@@ -1,0 +1,17 @@
+.background1 {
+    background: url("../../public/background1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.background2 {
+    background: url("../../public/background2.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.background3 {
+    background: url("../../public/background1.jpg");
+    background-position: center;
+    background-size: cover;
+}
